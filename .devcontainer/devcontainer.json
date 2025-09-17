@@ -1,8 +1,5 @@
 {
-  "name": "GIP",
-  "dockerComposeFile": [
-    "docker-compose.yml"
-  ],
+  "dockerComposeFile": ["docker-compose.yml"],
   "service": "dev-gip",
   "features": {
     "ghcr.io/devcontainers/features/git:1": {
@@ -10,16 +7,16 @@
       "gitCredentialHelper": "cache"
     },
     "ghcr.io/devcontainers/features/github-cli:1": {},
-    "ghcr.io/devcontainers/features/common-utils:2.5.3": {}
+    "ghcr.io/devcontainers/features/common-utils:2.5.4": {}
   },
+  "workspaceFolder": "/work/${localWorkspaceFolderBasename}",
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/work/${localWorkspaceFolderBasename},type=bind,consistency=cached"
+  ],
   "postCreateCommand": ".devcontainer/project-setup.sh",
   "remoteUser": "vscode",
-  "workspaceFolder": "/work",
   "customizations": {
     "vscode": {
-      "settings": {
-        "terminal.integrated.cwd": "/work"
-      },
       "extensions": [
         "tamasfe.even-better-toml",
         "usernamehw.errorlens",

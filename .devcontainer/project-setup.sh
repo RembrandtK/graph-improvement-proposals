@@ -11,16 +11,6 @@ REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
 echo "Script directory: $SCRIPT_DIR"
 echo "Repository root: $REPO_ROOT"
 
-# Set up local user directories with proper permissions
-echo "Setting up local user directories..."
-
-# Ensure all user directories exist and have proper ownership
-sudo mkdir -p /home/vscode/.cache /home/vscode/.config /home/vscode/.local/share /home/vscode/.local/bin
-sudo chown -R vscode:vscode /home/vscode/.cache /home/vscode/.config /home/vscode/.local
-sudo chmod -R 755 /home/vscode/.cache /home/vscode/.config /home/vscode/.local
-
-echo "User directories set up with proper permissions"
-
 # Add CONTAINER_BIN_PATH to PATH if it's set
 if [ -n "${CONTAINER_BIN_PATH:-}" ]; then
   echo "CONTAINER_BIN_PATH is set to: $CONTAINER_BIN_PATH"
